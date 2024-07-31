@@ -17,7 +17,7 @@ int _selectedIndex = 0;
       body: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 100, left: 5),
+            padding: const EdgeInsets.only(top: 100, left: 10),
             child: Align(
               alignment: Alignment.topLeft,
               child: Container(
@@ -31,7 +31,7 @@ int _selectedIndex = 0;
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 5),
+            padding: const EdgeInsets.only(left: 10),
             child: Container(
             alignment: Alignment.topLeft,
               child: Text('Where Words Transcend Boundaries,\nNavigating the Blogging Seas.', style:
@@ -45,25 +45,30 @@ int _selectedIndex = 0;
           ),
           SizedBox(height: 40),
           _buildCustomSegmentedControl(),
-          Expanded(child: _buildContentForSegments(_selectedIndex))
+          Expanded(
+              child: _buildContentForSegments(_selectedIndex),
+          ),
         ],
       ),
     );
   }
   Widget _buildCustomSegmentedControl() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
   mainAxisAlignment: MainAxisAlignment.center,
   children: <Widget>[
   _buildSegments('Today', 0),
-      _buildSegments('Technology', 1),
-      _buildSegments('World', 2),
-      _buildSegments('Finance', 3),
-      _buildSegments('Design', 4),
-    _buildSegments('Marketing', 5)
+        _buildSegments('Technology', 1),
+        _buildSegments('World', 2),
+        _buildSegments('Finance', 3),
+        _buildSegments('Design', 4),
+      _buildSegments('Marketing', 5)
   ],
 ),
+      ),
     );
   }
   Widget _buildSegments(String label, int index) {
@@ -110,109 +115,130 @@ class Today extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.yellowAccent.shade100,
-      body: ListView(
-        children: [
-          Text('Title Text', style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )),
-          Text('Description', style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black45,
-          )),
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Divider(
-              thickness: 1,
-              color: Colors.black54,
-              indent: 16,
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10.0),
+        child: ListView(
+          children: [
+            Text('Title Text', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+            Text('Description', style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black45,
+            )),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Divider(
+                thickness: 1,
+                color: Colors.black54,
+                indent: 16,
+              ),
             ),
-          ),
-          Text('Title Text', style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )),
-          Text('Description', style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black45,
-          )),
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Divider(
-              thickness: 1,
-              color: Colors.black54,
-              indent: 16,
+            Text('Title Text', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+            Text('Description', style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black45,
+            )),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Divider(
+                thickness: 1,
+                color: Colors.black54,
+                indent: 16,
+              ),
             ),
-          ),
-          Text('Title Text', style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )),
-          Text('Description', style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black45,
-          )),
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Divider(
-              thickness: 1,
-              color: Colors.black54,
-              indent: 16,
+            Text('Title Text', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+            Text('Description', style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black45,
+            )),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Divider(
+                thickness: 1,
+                color: Colors.black54,
+                indent: 16,
+              ),
             ),
-          ),
-          Text('Title Text', style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )),
-          Text('Description', style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black45,
-          )),
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Divider(
-              thickness: 1,
-              color: Colors.black54,
-              indent: 16,
+            Text('Title Text', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+            Text('Description', style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black45,
+            )),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Divider(
+                thickness: 1,
+                color: Colors.black54,
+                indent: 16,
+              ),
             ),
-          ),
-          Text('Title Text', style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )),
-          Text('Description', style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black45,
-          )),
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Divider(
-              thickness: 1,
-              color: Colors.black54,
-              indent: 16,
+            Text('Title Text', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+            Text('Description', style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black45,
+            )),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Divider(
+                thickness: 1,
+                color: Colors.black54,
+                indent: 16,
+              ),
             ),
-          ),
-          Text('Title Text', style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )),
-          Text('Description', style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black45,
-          )),
-        ],
+            Text('Title Text', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+            Text('Description', style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black45,
+            )),
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Divider(
+                thickness: 1,
+                color: Colors.black54,
+                indent: 16,
+              ),
+            ),
+            Text('Title Text', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            )),
+            Text('Description', style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: Colors.black45,
+            )),
+          ],
+        ),
       ),
     );
   }
