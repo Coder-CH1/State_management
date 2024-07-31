@@ -23,21 +23,33 @@ int _selectedIndex = 0;
        ),
       body: Column(
         children: <Widget>[
-          ToggleButtons(children: [
-
-          ], isSelected: List.generate(3, (index) => index == _selectedIndex),
-            onPressed: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-            },
-            color: Colors.brown,
-            selectedColor: Colors.indigo,
-          ),
-       Expanded(child: _buildContentForSegments(_selectedIndex)),
+          _buildCustomSegmentedControl(),
+          Expanded(child: _buildContentForSegments(_selectedIndex))
         ],
       ),
     );
+  }
+  Widget _buildCustomSegmentedControl() {
+return Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: <Widget>[
+  _buildSegments('Today', 0),
+    _buildSegments('Technology', 1),
+    _buildSegments('Design', 2)
+  ],
+);
+  }
+  Widget _buildSegments(String label, int index) {
+    return Expanded(child: ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: _selectedIndex == index ? Colors.brown : Colors.red,
+      ),
+      onPressed: () {
+        setState(() {
+          _selectedIndex = index;
+        });
+      }, child: Text(label),
+    ));
   }
 Widget _buildContentForSegments(int segment) {
   switch (segment) {
