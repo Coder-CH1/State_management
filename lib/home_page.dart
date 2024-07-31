@@ -30,16 +30,19 @@ int _selectedIndex = 0;
     );
   }
   Widget _buildCustomSegmentedControl() {
-return Row(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
   mainAxisAlignment: MainAxisAlignment.center,
   children: <Widget>[
   _buildSegments('Today', 0),
-    _buildSegments('Technology', 1),
-    _buildSegments('World', 2),
-    _buildSegments('Finance', 3),
-    _buildSegments('Design', 4)
+      _buildSegments('Technology', 1),
+      _buildSegments('World', 2),
+      _buildSegments('Finance', 3),
+      _buildSegments('Design', 4)
   ],
-);
+),
+    );
   }
   Widget _buildSegments(String label, int index) {
     return Expanded(child: ElevatedButton(
