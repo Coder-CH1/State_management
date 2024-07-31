@@ -13,16 +13,18 @@ int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-         title: Text('', style: TextStyle(
-           fontSize: 20,
-           fontWeight: FontWeight.w700,
-           color: Colors.black54,
-         )
-         ),
-       ),
+      backgroundColor: Colors.black26,
       body: Column(
         children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Text('Write. Share.\n Inspire', style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.white60,
+            )
+            ),
+          ),
           _buildCustomSegmentedControl(),
           Expanded(child: _buildContentForSegments(_selectedIndex))
         ],
@@ -45,16 +47,21 @@ int _selectedIndex = 0;
     );
   }
   Widget _buildSegments(String label, int index) {
-    return Expanded(child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        primary: _selectedIndex == index ? Colors.brown : Colors.red,
-      ),
-      onPressed: () {
+    return InkWell(
+      onTap: () {
         setState(() {
           _selectedIndex = index;
         });
-      }, child: Text(label),
-    ));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 16),
+        child: Text(label, style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          color: _selectedIndex == index ? Colors.brown : Colors.red,
+        )),
+      ),
+    );
   }
 Widget _buildContentForSegments(int segment) {
   switch (segment) {
@@ -81,7 +88,11 @@ class Today extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Container(
+        child: Text('This is todays blog post'),
+      ),
+    );
   }
 }
 
@@ -90,7 +101,7 @@ class Technology extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
 }
 
@@ -99,7 +110,7 @@ class World extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
 }
 
@@ -108,7 +119,7 @@ class Finance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
 }
 
@@ -117,6 +128,8 @@ class Design extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+
+    );
   }
 }
