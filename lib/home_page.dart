@@ -13,18 +13,37 @@ int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black26,
+      backgroundColor: Colors.yellowAccent.shade100,
       body: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 100),
-            child: Text('Write. Share.\n Inspire', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.white60,
-            )
+            padding: const EdgeInsets.only(top: 100, left: 5),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                child: Text('Write. Share.\nInspire',style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                )
+                ),
+              ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(left: 5),
+            child: Container(
+            alignment: Alignment.topLeft,
+              child: Text('Where Words Transcend Boundaries,\nNavigating the Blogging Seas.', style:
+              TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
+                color: Colors.black54,
+              )
+              ),
+            ),
+          ),
+          SizedBox(height: 40),
           _buildCustomSegmentedControl(),
           Expanded(child: _buildContentForSegments(_selectedIndex))
         ],
@@ -41,7 +60,8 @@ int _selectedIndex = 0;
       _buildSegments('Technology', 1),
       _buildSegments('World', 2),
       _buildSegments('Finance', 3),
-      _buildSegments('Design', 4)
+      _buildSegments('Design', 4),
+    _buildSegments('Marketing', 5)
   ],
 ),
     );
@@ -56,9 +76,9 @@ int _selectedIndex = 0;
       child: Container(
         margin: EdgeInsets.only(right: 16),
         child: Text(label, style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          color: _selectedIndex == index ? Colors.brown : Colors.red,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          color: _selectedIndex == index ? Colors.black : Colors.grey,
         )),
       ),
     );
@@ -75,6 +95,8 @@ Widget _buildContentForSegments(int segment) {
       return Finance();
     case 4:
       return Design();
+    case 5:
+      return Marketing();
     default:
       return Center(child: Text('default'));
   }
@@ -89,6 +111,7 @@ class Today extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellowAccent.shade100,
       body: Container(
         child: Text('This is todays blog post'),
       ),
@@ -101,7 +124,9 @@ class Technology extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.red,
+    );
   }
 }
 
@@ -110,7 +135,9 @@ class World extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.green,
+    );
   }
 }
 
@@ -119,7 +146,9 @@ class Finance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.indigo,
+    );
   }
 }
 
@@ -129,7 +158,18 @@ class Design extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+backgroundColor: Colors.pink,
+    );
+  }
+}
 
+class Marketing extends StatelessWidget {
+  const Marketing({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white30,
     );
   }
 }
