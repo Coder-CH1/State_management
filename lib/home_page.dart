@@ -103,8 +103,6 @@ Widget _buildContentForSegments(int segment) {
 }
 }
 
-
-
 class Today extends StatelessWidget {
   const Today({Key? key}) : super(key: key);
 
@@ -112,8 +110,109 @@ class Today extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.yellowAccent.shade100,
-      body: Container(
-        child: Text('This is todays blog post'),
+      body: ListView(
+        children: [
+          Text('Title Text', style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+          Text('Description', style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            color: Colors.black45,
+          )),
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: Divider(
+              thickness: 1,
+              color: Colors.black54,
+              indent: 16,
+            ),
+          ),
+          Text('Title Text', style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+          Text('Description', style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            color: Colors.black45,
+          )),
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: Divider(
+              thickness: 1,
+              color: Colors.black54,
+              indent: 16,
+            ),
+          ),
+          Text('Title Text', style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+          Text('Description', style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            color: Colors.black45,
+          )),
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: Divider(
+              thickness: 1,
+              color: Colors.black54,
+              indent: 16,
+            ),
+          ),
+          Text('Title Text', style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+          Text('Description', style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            color: Colors.black45,
+          )),
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: Divider(
+              thickness: 1,
+              color: Colors.black54,
+              indent: 16,
+            ),
+          ),
+          Text('Title Text', style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+          Text('Description', style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            color: Colors.black45,
+          )),
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: Divider(
+              thickness: 1,
+              color: Colors.black54,
+              indent: 16,
+            ),
+          ),
+          Text('Title Text', style: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+          Text('Description', style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+            color: Colors.black45,
+          )),
+        ],
       ),
     );
   }
