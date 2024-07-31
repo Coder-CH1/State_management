@@ -35,7 +35,9 @@ return Row(
   children: <Widget>[
   _buildSegments('Today', 0),
     _buildSegments('Technology', 1),
-    _buildSegments('Design', 2)
+    _buildSegments('World', 2),
+    _buildSegments('Finance', 3),
+    _buildSegments('Design', 4)
   ],
 );
   }
@@ -58,6 +60,10 @@ Widget _buildContentForSegments(int segment) {
     case 1:
       return Technology();
     case 2:
+      return World();
+    case 3:
+      return Finance();
+    case 4:
       return Design();
     default:
       return Center(child: Text('default'));
@@ -78,6 +84,24 @@ class Today extends StatelessWidget {
 
 class Technology extends StatelessWidget {
   const Technology({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class World extends StatelessWidget {
+  const World({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class Finance extends StatelessWidget {
+  const Finance({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
