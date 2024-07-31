@@ -12,49 +12,45 @@ class _HomePageState extends State<HomePage> {
 int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: Text('Write. Share. Inspire', style: TextStyle(
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          )),
-        ),
-      child: Column(
+    return Scaffold(
+       appBar: AppBar(
+         title: Text('', style: TextStyle(
+           fontSize: 20,
+           fontWeight: FontWeight.w700,
+           color: Colors.black54,
+         )
+         ),
+       ),
+      body: Column(
         children: <Widget>[
-          CupertinoSegmentedControl<int>(
-            children: {
-              0: Text('Today'),
-              1: Text('Technology'),
-              2: Text('Design')
+          ToggleButtons(children: [
+
+          ], isSelected: List.generate(3, (index) => index == _selectedIndex),
+            onPressed: (int index) {
+            setState(() {
+              _selectedIndex = index;
+            });
             },
-            onValueChanged: (int? value) {
-              setState(() {
-                _selectedIndex = value!;
-              }
-              );
-            },
-            groupValue: _selectedIndex,
+            color: Colors.brown,
+            selectedColor: Colors.indigo,
           ),
-          Expanded(
-            child: _buildContentForSegments(_selectedIndex),
-          )
+       Expanded(child: _buildContentForSegments(_selectedIndex)),
         ],
       ),
     );
   }
-  Widget _buildContentForSegments(int segment) {
-    switch (segment) {
-      case 0:
-        return Today();
-      case 1:
-        return Technology();
-      case 2:
-        return Design();
-      default:
-        return Center(child: Text('default'));
-    }
+Widget _buildContentForSegments(int segment) {
+  switch (segment) {
+    case 0:
+      return Today();
+    case 1:
+      return Technology();
+    case 2:
+      return Design();
+    default:
+      return Center(child: Text('default'));
   }
+}
 }
 
 
