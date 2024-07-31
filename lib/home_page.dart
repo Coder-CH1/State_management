@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:bloc/bloc.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,47 +9,79 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+int _selectedIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+        navigationBar: CupertinoNavigationBar(
+          middle: Text('Write. Share. Inspire', style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
+        ),
+      child: Column(
+        children: <Widget>[
+          CupertinoSegmentedControl<int>(
+            children: {
+              0: Text('Today'),
+              1: Text('Technology'),
+              2: Text('Design')
+            },
+            onValueChanged: (int? value) {
+              setState(() {
+                _selectedIndex = value!;
+              }
+              );
+            },
+            groupValue: _selectedIndex,
+          ),
+          Expanded(
+            child: _buildContentForSegments(_selectedIndex),
+          )
+        ],
+      ),
+    );
+  }
+  Widget _buildContentForSegments(int segment) {
+    switch (segment) {
+      case 0:
+        return Today();
+      case 1:
+        return Technology();
+      case 2:
+        return Design();
+      default:
+        return Center(child: Text('default'));
+    }
+  }
+}
+
+
+
+class Today extends StatelessWidget {
+  const Today({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.yellowAccent.shade100,
-      body:
-        Row(
-          children: [
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 80, left: 10),
-                  child: Text('Write. Share.\nInspire.',
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      )
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: Text('Where Words Transcend Boundaries\nNavigation the Blogging Seas.',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ],
+    return const Placeholder();
+  }
+}
 
-            ),
-            Expanded(child:Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+class Technology extends StatelessWidget {
+  const Technology({Key? key}) : super(key: key);
 
-            ]
-            )
-            )
-          ],
-        )
-    );
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class Design extends StatelessWidget {
+  const Design({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
