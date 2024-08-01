@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 
 abstract class TodayEvent {}
 class FetchPosts extends TodayEvent {
-
 }
 
 abstract class TodayState {}
@@ -23,7 +22,7 @@ class TodayBloc extends Bloc<TodayEvent, TodayState> {
   final Networking networking;
   TodayBloc(this.networking) : super(TodayInitial());
   @override
-  Stream<TodayState> mapEventToState(PostEvent, event) async* {
+  Stream<TodayState> mapEventToState(TodayEvent event) async* {
     if (event is FetchPosts) {
       yield TodayLoading();
       try {
