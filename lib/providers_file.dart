@@ -12,5 +12,8 @@ final networkingProvider = Provider<Networking>((ref) {
 
 final postsBlocProvider = Provider<PostsBloc>((ref) {
   final network = ref.watch(networkingProvider);
-  return PostsBloc(network);
+  return PostsBloc();
 });
+
+class PostsBloc {
+}

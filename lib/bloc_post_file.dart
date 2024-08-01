@@ -1,23 +1,37 @@
-import 'bloc_events_file.dart';
-import 'bloc_states_file.dart';
+import 'model.dart';
+import 'package:state_management/networking.dart';
 import 'package:bloc/bloc.dart';
-import 'networking.dart';
 
-class PostsBloc extends Bloc<PostsEvent, PostsState> {
-  final Networking _networking;
-  PostsBloc(this._networking) : super(PostsInitial());
+abstract class TodayEvent {}
+class FetchPosts extends TodayEvent {
 
+}
+
+abstract class TodayState {}
+class TodayInitial extends TodayState {}
+class TodayLoading extends TodayState {}
+class TodayLoaded extends TodayState {
+  final List<Welcome> posts;
+  TodayLoaded(this.posts);
+}
+class TodayError extends TodayState {
+  final String message;
+  TodayError(this.message);
+}
+
+class TodayBloc extends Bloc<TodayEvent, TodayState> {
+  final Networking networking;
+  TodayBloc(this.networking) : super(TodayInitial());
   @override
-
-  Stream<PostsState> mapEventToState(PostsEvent, event) async* {
-    if(event is LoadPosts) {
-      yield PostsLoading();
+  Stream<TodayState> mapEventToState(PostEvent, event) async* {
+    if (event is FetchPosts) {
+      yield TodayLoading();
       try {
-        final posts = await _networking.fetchPost();
-        yield PostsLoaded(posts);
+        final post = await networking.fetchPost();
+        yield TodayLoaded(post);
       } catch (e) {
-        yield PostsError(e.toString());
+        yield TodayError(e.toString());
       }
     }
+    }
   }
-}
