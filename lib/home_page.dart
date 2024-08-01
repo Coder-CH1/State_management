@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:state_management/post_details_page.dart';
 import 'model.dart';
 import 'networking.dart';
 
@@ -146,6 +147,12 @@ class _TodayState extends State<Today> {
                   title: Text(post.title),
                   subtitle: Text(post.content),
                   leading: Image.network(post.image),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PostDetailsPage(post: post)),
+                    );
+                  },
                 );
               },
             );
