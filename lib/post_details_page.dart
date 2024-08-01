@@ -14,20 +14,22 @@ class PostDetailsPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.network(post.image),
-            SizedBox(height: 10),
-            Text(post.title, style: Theme.of(context).textTheme.headline6),
-            SizedBox(height: 10),
-            Text(post.content),
-            SizedBox(height: 10),
-            Text('Published on `${post.publishedAt}'),
-            Text('Updated on ${post.updatedAt}'),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.network(post.image),
+              SizedBox(height: 10),
+              Text(post.title, style: Theme.of(context).textTheme.headline6),
+              SizedBox(height: 10),
+              Text(post.content),
+              SizedBox(height: 10),
+              Text('Published on `${post.publishedAt}'),
+              Text('Updated on ${post.updatedAt}'),
+            ],
+          ),
+        )
         ),
-      ),
     );
   }
 }
