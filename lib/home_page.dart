@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_management/bloc_post_file.dart';
 import 'package:state_management/post_details_page.dart';
 import 'model.dart';
 import 'networking.dart';
