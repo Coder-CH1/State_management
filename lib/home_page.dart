@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:state_management/post_details_page.dart';
 import 'model.dart';
 import 'networking.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

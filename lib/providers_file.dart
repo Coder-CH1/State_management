@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'model.dart';
 import 'networking.dart';
 
-
 final dioProvider = Provider((ref) => Dio());
 
 final networkingProvider = Provider<Networking>((ref) {

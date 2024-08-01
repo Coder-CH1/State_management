@@ -22,7 +22,7 @@ class TodayBloc extends Bloc<TodayEvent, TodayState> {
   final Networking networking;
   TodayBloc(this.networking) : super(TodayInitial());
   @override
-  Stream<TodayState> mapEventToState(TodayEvent event) async* {
+  Stream<TodayState> mapEventToState(TodayState event) async* {
     if (event is FetchPosts) {
       yield TodayLoading();
       try {
