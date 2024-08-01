@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
+import 'model.dart';
+import 'networking.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -108,138 +110,48 @@ Widget _buildContentForSegments(int segment) {
 }
 }
 
-class Today extends StatelessWidget {
+class Today extends StatefulWidget {
   const Today({Key? key}) : super(key: key);
 
   @override
+  State<Today> createState() => _TodayState();
+}
+
+class _TodayState extends State<Today> {
+  late Future<List<Welcome>> _posts;
+  @override
+  void initState() {
+    super.initState();
+        _posts = Networking().fetchPost();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.yellowAccent.shade100,
-      body: Padding(
-        padding: const EdgeInsets.only(left: 10.0),
-        child: ListView(
-          children: [
-            Text('Title Text', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-            Text('Description', style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Colors.black45,
-            )),
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: Divider(
-                thickness: 1,
-                color: Colors.black54,
-                indent: 16,
-              ),
-            ),
-            Text('Title Text', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-            Text('Description', style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Colors.black45,
-            )),
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: Divider(
-                thickness: 1,
-                color: Colors.black54,
-                indent: 16,
-              ),
-            ),
-            Text('Title Text', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-            Text('Description', style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Colors.black45,
-            )),
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: Divider(
-                thickness: 1,
-                color: Colors.black54,
-                indent: 16,
-              ),
-            ),
-            Text('Title Text', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-            Text('Description', style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Colors.black45,
-            )),
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: Divider(
-                thickness: 1,
-                color: Colors.black54,
-                indent: 16,
-              ),
-            ),
-            Text('Title Text', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-            Text('Description', style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Colors.black45,
-            )),
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: Divider(
-                thickness: 1,
-                color: Colors.black54,
-                indent: 16,
-              ),
-            ),
-            Text('Title Text', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-            Text('Description', style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Colors.black45,
-            )),
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: Divider(
-                thickness: 1,
-                color: Colors.black54,
-                indent: 16,
-              ),
-            ),
-            Text('Title Text', style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            )),
-            Text('Description', style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: Colors.black45,
-            )),
-          ],
-        ),
-      ),
+      body: FutureBuilder<List<Welcome>>(
+        future: _posts,
+        builder: (context, snap) {
+          if (snap.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snap.hasError) {
+            return Center(child: Text('${snap.error}'));
+          } else if (!snap.hasData || snap.data!.isEmpty ) {
+            return Center(child: Text('no post available'));
+          } else {
+            final posts = snap.data!;
+            return ListView.builder(
+              itemCount: posts.length,
+              itemBuilder: (context, index) {
+                final post = posts[index];
+                return ListTile(
+                  title: Text(post.title),
+                  subtitle: Text(post.content),
+                  leading: Image.network(post.image),
+                );
+              },
+            );
+          }
+        },
+      )
     );
   }
 }
