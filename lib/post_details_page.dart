@@ -10,7 +10,9 @@ class PostDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(post.title),
+        backgroundColor: Colors.black,
       ),
+      backgroundColor: Colors.yellowAccent.shade100,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
