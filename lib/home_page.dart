@@ -146,9 +146,36 @@ class _TodayState extends State<Today> {
                 itemBuilder: (context, index) {
                   final post = posts[index];
                   return ListTile(
-                    title: Text(post.title),
-                    subtitle: Text(post.content),
-                    leading: Image.network(post.image),
+                    title: Column(
+                      children: [
+                        Image.network(post.image),
+                         Text(post.title, style: TextStyle(
+                           fontSize: 30,
+                           fontWeight: FontWeight.bold,
+                           color: Colors.black54,
+                         )),
+                        Text(post.content, style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black26,
+                        ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15.0),
+                          child: Divider(
+                            thickness: 1,
+                            color: Colors.black54,
+                            indent: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    ),
                     onTap: () {
                       Navigator.push(
                         context,
