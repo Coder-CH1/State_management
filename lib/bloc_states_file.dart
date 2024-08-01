@@ -11,9 +11,9 @@ class PostsInitial extends PostsState {}
 
 class PostsLoading extends PostsState {}
 
-class PostLoaded extends PostsState {
+class PostsLoaded extends PostsState {
   final List<Welcome> posts;
-  const PostLoaded(this.posts);
+  const PostsLoaded(this.posts);
   @override
   List<Object> get props => [posts];
 }

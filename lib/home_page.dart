@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:state_management/bloc_events_file.dart';
+import 'package:state_management/bloc_post_file.dart';
+import 'package:state_management/bloc_states_file.dart';
 import 'package:state_management/post_details_page.dart';
 import 'model.dart';
 import 'networking.dart';
@@ -127,39 +131,40 @@ class _TodayState extends State<Today> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellowAccent.shade100,
-      body: FutureBuilder<List<Welcome>>(
-        future: _posts,
-        builder: (context, snap) {
-          if (snap.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else if (snap.hasError) {
-            return Center(child: Text('${snap.error}'));
-          } else if (!snap.hasData || snap.data!.isEmpty ) {
-            return Center(child: Text('no post available'));
-          } else {
-            final posts = snap.data!;
-            return ListView.builder(
-              itemCount: posts.length,
-              itemBuilder: (context, index) {
-                final post = posts[index];
-                return ListTile(
-                  title: Text(post.title),
-                  subtitle: Text(post.content),
-                  leading: Image.network(post.image),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PostDetailsPage(post: post)),
-                    );
-                  },
-                );
-              },
-            );
-          }
-        },
-      )
+        backgroundColor: Colors.yellowAccent.shade100,
+        body: FutureBuilder<List<Welcome>>(
+          future: _posts,
+          builder: (context, snap) {
+            if (snap.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snap.hasError) {
+              return Center(child: Text('${snap.error}'));
+            } else if (!snap.hasData || snap.data!.isEmpty ) {
+              return Center(child: Text('no post available'));
+            } else {
+              final posts = snap.data!;
+              return ListView.builder(
+                itemCount: posts.length,
+                itemBuilder: (context, index) {
+                  final post = posts[index];
+                  return ListTile(
+                    title: Text(post.title),
+                    subtitle: Text(post.content),
+                    leading: Image.network(post.image),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PostDetailsPage(post: post)),
+                      );
+                    },
+                  );
+                },
+              );
+            }
+          },
+        )
     );
+
   }
 }
 

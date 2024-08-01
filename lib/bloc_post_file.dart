@@ -14,7 +14,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
       yield PostsLoading();
       try {
         final posts = await _networking.fetchPost();
-        yield PostLoaded(posts);
+        yield PostsLoaded(posts);
       } catch (e) {
         yield PostsError(e.toString());
       }
