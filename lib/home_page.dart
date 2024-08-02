@@ -167,8 +167,6 @@ class _TodayState extends State<Today> {
         ),
       ),
     );
-
-
   }
 }
 
