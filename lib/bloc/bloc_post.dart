@@ -1,4 +1,4 @@
-import 'package:state_management/networking.dart';
+import 'package:state_management/Networking/networking.dart';
 import 'package:bloc/bloc.dart';
 import 'post_state.dart';
 import 'post_event.dart';

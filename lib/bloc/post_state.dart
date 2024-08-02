@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'model.dart';
+import '../Networking/model.dart';
 import 'bloc_post.dart';
 
 abstract class PostState extends Equatable {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management/home_page.dart';
+import 'package:state_management/pages/home_page.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({Key? key}) : super(key: key);

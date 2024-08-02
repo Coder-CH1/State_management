@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:state_management/model.dart';
+import 'package:state_management/Networking/model.dart';
 
 class Networking {
   final Dio _dio = Dio();

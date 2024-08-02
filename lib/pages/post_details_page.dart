@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management/model.dart';
+import 'package:state_management/Networking/model.dart';
 
 class PostDetailsPage extends StatelessWidget {
   final Welcome post;

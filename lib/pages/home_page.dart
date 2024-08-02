@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:state_management/post_details_page.dart';
-import 'package:state_management/post_event.dart';
-import 'package:state_management/post_state.dart';
-import 'bloc_post.dart';
+import 'package:state_management/pages/post_details_page.dart';
+import 'package:state_management/bloc/post_event.dart';
+import 'package:state_management/bloc/post_state.dart';
+import '../bloc/bloc_post.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'model.dart';
-import 'networking.dart';
+import '../Networking/model.dart';
+import '../Networking/networking.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

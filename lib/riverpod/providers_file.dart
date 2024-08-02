@@ -1,7 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 import 'package:dio/dio.dart';
-import 'package:state_management/bloc_post.dart';
-import 'networking.dart';
+import 'package:state_management/bloc/bloc_post.dart';
+import '../Networking/networking.dart';
 
 final dioProvider = Provider((ref) => Dio());
 
