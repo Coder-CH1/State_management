@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'bloc_post.dart';
-import 'package:bloc/bloc.dart';
-import 'package:state_management/bloc/bloc_post.dart';
+import '../bloc/bloc_post.dart';
+import '../bloc/post_state.dart';
 
 abstract class PostEvent extends Equatable {
   const PostEvent();
