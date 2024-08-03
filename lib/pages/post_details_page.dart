@@ -27,7 +27,6 @@ class PostDetailsPage extends StatelessWidget {
               SizedBox(height: 10),
               Text('Published on `${post.publishedAt}'),
               Text('Updated on ${post.updatedAt}'),
-              //Text('${post.id}')
             ],
           ),
         )
