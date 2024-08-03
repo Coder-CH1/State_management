@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:state_management/pages/post_details_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../Networking/model.dart';
@@ -28,11 +26,11 @@ int _selectedIndex = 0;
             child: Align(
               alignment: Alignment.topLeft,
               child: Container(
-                child: Text('Write. Share.\nInspire',style: TextStyle(
+                child: const Text('Write. Share.\nInspire',style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
-                )
+                ),
                 ),
               ),
             ),
@@ -41,16 +39,16 @@ int _selectedIndex = 0;
             padding: const EdgeInsets.only(left: 10),
             child: Container(
             alignment: Alignment.topLeft,
-              child: Text('Where Words Transcend Boundaries,\nNavigating the Blogging Seas.', style:
+              child: const Text('Where Words Transcend Boundaries,\nNavigating the Blogging Seas.', style:
               TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.normal,
                 color: Colors.black54,
-              )
+              ),
               ),
             ),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           _buildCustomSegmentedControl(),
           Expanded(
               child: _buildContentForSegments(_selectedIndex),
@@ -86,31 +84,32 @@ int _selectedIndex = 0;
         });
       },
       child: Container(
-        margin: EdgeInsets.only(right: 16),
+        margin: const EdgeInsets.only(right: 16),
         child: Text(label, style: TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.normal,
           color: _selectedIndex == index ? Colors.black : Colors.grey,
-        )),
+        ),
+        ),
       ),
     );
   }
 Widget _buildContentForSegments(int segment) {
   switch (segment) {
     case 0:
-      return Today();
+      return const Today();
     case 1:
-      return Technology();
+      return const Technology();
     case 2:
-      return World();
+      return const World();
     case 3:
-      return Finance();
+      return const Finance();
     case 4:
-      return Design();
+      return const Design();
     case 5:
-      return Marketing();
+      return const Marketing();
     default:
-      return Center(child: Text('default'));
+      return const Center(child: Text('default'));
   }
 }
 }
@@ -137,9 +136,9 @@ class _TodayState extends State<Today> {
         body: BlocBuilder<PostBloc, PostState>(
           builder: (context, state){
             if(state is PostLoading) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (state is PostError) {
-              return Center(child: Text('${state.message}'));
+              return Center(child: Text(state.message));
             } else if (state is PostLoaded) {
               final posts = state.posts;
               return ListView.builder(
@@ -162,7 +161,7 @@ class _TodayState extends State<Today> {
                   }
               );
             }
-            return  Center(child: Text('No data'));
+            return  const Center(child: Text('No data'));
           },
         ),
       ),
@@ -175,7 +174,7 @@ class Technology extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.red,
     );
   }
@@ -186,7 +185,7 @@ class World extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.green,
     );
   }
@@ -197,7 +196,7 @@ class Finance extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.indigo,
     );
   }
@@ -208,7 +207,7 @@ class Design extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
 backgroundColor: Colors.pink,
     );
   }
@@ -219,7 +218,7 @@ class Marketing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white30,
     );
   }
