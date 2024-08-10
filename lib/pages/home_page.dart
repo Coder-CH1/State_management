@@ -21,17 +21,15 @@ int _selectedIndex = 0;
       backgroundColor: Colors.yellowAccent.shade100,
       body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 100, left: 10),
+          const Padding(
+            padding: EdgeInsets.only(top: 100, left: 10),
             child: Align(
               alignment: Alignment.topLeft,
-              child: Container(
-                child: const Text('Write. Share.\nInspire',style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-                ),
+              child: Text('Write. Share.\nInspire',style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
               ),
             ),
           ),
