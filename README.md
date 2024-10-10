@@ -1,4 +1,5 @@
-# _State_management_
-## _State management in Flutter._
+# State_management
 
-### _This project uses both Bloc and Riverpod State management for managing business logic, and UI state management_.
+###  State management in Flutter:
+
+- This project uses both Bloc and Riverpod State management for managing business logic, and UI state management.
