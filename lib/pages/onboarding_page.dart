@@ -28,17 +28,17 @@ class OnboardingPage extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),
                   ),
                   );
-                }, child: const Text('Start to Read', style:
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.yellowAccent.shade100,
+                  minimumSize: const Size(300, 50),
+                ), child: const Text('Start to Read', style:
               TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w400,
                 color: Colors.black,
               ),
               ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.yellowAccent.shade100,
-                  minimumSize: const Size(300, 50),
-                ),
               ),
             ),
           ]

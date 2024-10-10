@@ -126,6 +126,7 @@ class _TodayState extends State<Today> {
     super.initState();
         _posts = Networking().fetchPost();
   }
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => PostBloc(Networking())..add(FetchPostEvent()),

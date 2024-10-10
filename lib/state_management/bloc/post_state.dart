@@ -1,12 +1,10 @@
 import 'package:equatable/equatable.dart';
-import '../bloc/bloc_post.dart';
 import 'package:state_management/Networking/model.dart';
 
 abstract class PostState extends Equatable {
   const PostState();
   @override
   List<Object> get props => [];
-
 }
 
 class PostInitial extends PostState {}

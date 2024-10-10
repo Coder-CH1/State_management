@@ -12,7 +12,7 @@ emit(PostLoading());
 try {
   final posts = await _networking.fetchPost();
   emit(PostLoaded(posts));
-} catch (e){
+} catch (e) {
   emit(PostError(e.toString()));
 }
     });
